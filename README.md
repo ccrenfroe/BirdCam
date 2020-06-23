@@ -8,6 +8,8 @@ The camera will be set up to observe the bird feeder. What should be done to pre
 
 Squirrels like to mess with the bird feeder alot also. Should Tensorflow train on squirrels as well?
 
+Changes in time of day could also casue false positives.
+
 ## Dataset
 
 https://www.tensorflow.org/datasets/catalog/caltech_birds2011  - First Candidate.
@@ -16,6 +18,8 @@ https://www.tensorflow.org/datasets/catalog/caltech_birds2011  - First Candidate
 
 * Raspberry Pi 4B 4gb [Link](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
 * Arducam Autofocus Pi camera [Link](https://www.amazon.com/gp/product/B07SN8GYGD/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+
+## Dependencies
 
 ## API's
 
@@ -47,3 +51,4 @@ https://www.tensorflow.org/datasets/catalog/caltech_birds2011  - First Candidate
 
 * Setup WebApp for the whole thing to run through.
 * Connect the images taken to a SQL database.
+* Send the images taken to AWS
