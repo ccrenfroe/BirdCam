@@ -5,13 +5,14 @@ import cv2
 import imutils
 import time
 
-# Global
+# CONSTANTS
+MIN_AREA = 500
+
 vs = cv2.VideoCapture(0)
 #vs = VideoStream(src=0).start()
 time.sleep(2)
 firstFrame = None
-# CONSTANT
-MIN_AREA = 500
+secondFrame = None
 
 while True:
     frame = vs.read()
@@ -20,17 +21,26 @@ while True:
         exit()
     else: # Gets the image
         frame = frame[1]
-   
+        
     #Resize to make the image less intensive to process
     frame = imutils.resize(frame, width=500)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) # Convert to gray to make the image easier to run through Gaussian blur.
     gray = cv2.GaussianBlur(gray, (21, 21), 0) # Smooths out the pixels to get rid of any high variation between pixel intensities in a given region (x, x)
+    # Makes sure I am always comparing the last 2 frames in
     if firstFrame is None:
+        print("Entered 1st")
         firstFrame = gray
         continue
+    elif secondFrame is None:
+        print("Entered 2nd")
+        secondFrame = gray
+    else:
+        print("Entered else")
+        firstFrame = secondFrame
+        secondFrame = gray;
     
     # Compute Abs diffrence between current frame and first frame.
-    frameDelta = cv2.absdiff(firstFrame,gray) # Simple subtraction of pixel intensities
+    frameDelta = cv2.absdiff(firstFrame,secondFrame) # Simple subtraction of pixel intensities
     thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1] # Thresholding the frameDelta. Only showing changes greater than x pixels, given by 2nd parameter argument.
 
     thresh = cv2.dilate(thresh, None, iterations=2)

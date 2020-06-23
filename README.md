@@ -10,6 +10,8 @@ Squirrels like to mess with the bird feeder alot also. Should Tensorflow train o
 
 Changes in time of day could also casue false positives.
 
+How to detect change betweena  brown bird and brown background?
+
 ## Dataset
 
 https://www.tensorflow.org/datasets/catalog/caltech_birds2011  - First Candidate.
