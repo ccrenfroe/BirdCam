@@ -15,12 +15,10 @@ firstFrame = None
 secondFrame = None
 
 while True:
-    frame = vs.read()
-    if frame[0] is False: # If read returned False, there was no frame to grab.
+    ret, frame = vs.read()
+    if ret is False: # If read returned False, there was no frame to grab.
         print("Error getting frame")
         exit()
-    else: # Gets the image
-        frame = frame[1]
         
     #Resize to make the image less intensive to process
     frame = imutils.resize(frame, width=500)
@@ -31,16 +29,23 @@ while True:
         print("Entered 1st")
         firstFrame = gray
         continue
-    elif secondFrame is None:
-        print("Entered 2nd")
-        secondFrame = gray
-    else:
-        print("Entered else")
-        firstFrame = secondFrame
-        secondFrame = gray;
-    
+    ###################################### Maybe Keep ?
+    #elif secondFrame is None:
+    #    print("Entered 2nd")
+    #    secondFrame = gray
+    #else:
+    #    print("Entered else")
+    #    firstFrame = secondFrame
+    #    secondFrame = gray;
+    #####################################
+
+
     # Compute Abs diffrence between current frame and first frame.
-    frameDelta = cv2.absdiff(firstFrame,secondFrame) # Simple subtraction of pixel intensities
+    
+    ##################################### Maybe Keep ?
+    #frameDelta = cv2.absdiff(firstFrame,secondFrame) # Simple subtraction of pixel intensities 
+
+    frameDelta = cv2.absdiff(firstFrame,gray) # Simple subtraction of pixel intensities
     thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1] # Thresholding the frameDelta. Only showing changes greater than x pixels, given by 2nd parameter argument.
 
     thresh = cv2.dilate(thresh, None, iterations=2)
@@ -61,6 +66,8 @@ while True:
     cv2.imshow("Normal",frame)
     cv2.imshow("Thresh",thresh)
     cv2.imshow("Frame Delta", frameDelta)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
 vs.release()
 cv2.destroyAllWindows()
