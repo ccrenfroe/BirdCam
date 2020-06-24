@@ -6,10 +6,9 @@ import imutils
 import time
 
 # CONSTANTS
-MIN_AREA = 500
-
+MIN_AREA = 2000
+THRESHOLD = 120
 vs = cv2.VideoCapture(0)
-#vs = VideoStream(src=0).start()
 time.sleep(2)
 firstFrame = None
 secondFrame = None
@@ -23,12 +22,13 @@ while True:
     #Resize to make the image less intensive to process
     frame = imutils.resize(frame, width=500)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) # Convert to gray to make the image easier to run through Gaussian blur.
-    gray = cv2.GaussianBlur(gray, (21, 21), 0) # Smooths out the pixels to get rid of any high variation between pixel intensities in a given region (x, x)
+    gray = cv2.GaussianBlur(gray, (21, 21), 0) # Smooths out the pixels to get rid of any high variation between pixel intensities in a given region (x, x) LOI --------------
     # Makes sure I am always comparing the last 2 frames in
     if firstFrame is None:
         print("Entered 1st")
         firstFrame = gray
         continue
+    
     ###################################### Maybe Keep ?
     #elif secondFrame is None:
     #    print("Entered 2nd")
@@ -46,16 +46,16 @@ while True:
     #frameDelta = cv2.absdiff(firstFrame,secondFrame) # Simple subtraction of pixel intensities 
 
     frameDelta = cv2.absdiff(firstFrame,gray) # Simple subtraction of pixel intensities
-    thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1] # Thresholding the frameDelta. Only showing changes greater than x pixels, given by 2nd parameter argument.
+    thresh = cv2.threshold(frameDelta, THRESHOLD, 255, cv2.THRESH_BINARY)[1] # Thresholding the frameDelta. Only showing changes greater than x pixels, given by 2nd parameter argument. LOI
 
-    thresh = cv2.dilate(thresh, None, iterations=2)
-    contours = cv2.findContours(thresh.copy(), cv2. RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    contours = imutils.grab_contours(contours)
+    thresh = cv2.dilate(thresh, None, iterations=2) # LOI -----------------
+    contours = cv2.findContours(thresh.copy(), cv2. RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE) #LOI -------------------
+    contours = imutils.grab_contours(contours) # LOI ---------------------
     
     # Loop over the contours.
     # If the current contour is too small, ignore it
     for c in contours:
-        if cv2.contourArea(c) < MIN_AREA:
+        if cv2.contourArea(c) < MIN_AREA:  # LOI -------------------
             continue
         # Else a bounding box is drawn around it
         (x, y, w, h) = cv2.boundingRect(c)
