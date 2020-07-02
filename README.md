@@ -4,7 +4,8 @@ Bird detector and classifier implemented using a Raspberry Pi and Tensorflow Lit
 
 ## Things to think about
 
-The camera will be set up to observe the bird feeder. What should be done to prevent false positives when the sway of the bird feeder indicates change?
+The camera will be set up to observe the bird feeder.
+What should be done to prevent false positives when the sway of the bird feeder indicates change?
 
 Squirrels like to mess with the bird feeder alot also. Should Tensorflow train on squirrels as well?
 
@@ -14,7 +15,10 @@ How to detect change betweena  brown bird and brown background?
 
 ## Dataset
 
-https://www.tensorflow.org/datasets/catalog/caltech_birds2011  - First Candidate.
+<s> <https://www.tensorflow.org/datasets/catalog/caltech_birds2011>  - First Candidate. <s>
+
+<https://tfhub.dev/google/lite-model/aiy/vision/classifier/birds_V1/1> - Birds V1.1 ;
+Tensorflow mobile bird classification model using the MobileNetV2 architecture  and the iNaturalist dataset.
 
 ## Hardware
 
@@ -32,22 +36,22 @@ https://www.tensorflow.org/datasets/catalog/caltech_birds2011  - First Candidate
 ## Plan
 
 1. Basics
-  1. Connect Pi and computer using ssh.
-  2. Create script for Pi to stream video
-  3. Create script on computer to do steps 1 and 2.
+   1. Connect Pi and computer using ssh.
+   2. Create script for Pi to stream video
+   3. Create script on computer to do steps 1 and 2.
 
 2. Motion Detection
-  4. Create script to take a picture when a certain amount of change is detected in the video stream.
-  5. Test for false positives such as the sway of the bird feeder.
+   1. Create script to take a picture when a certain amount of change is detected in the video stream.
+   2. Test for false positives such as the sway of the bird feeder.
 
 3. Machine Learning
-  6. Train Tensorflow lite with the birds dataset.
-  7. Test Tensorflow with pictures of birds. If it can be tested with pictures of birds from the camera, even better.
-  8. Optionally add squirrels?
+   1. Train Tensorflow lite with the birds dataset.
+   2. Test Tensorflow with pictures of birds. If it can be tested with pictures of birds from the camera, even better.
+   3. Optionally add squirrels?
   
 4. Organize Data
-  9. Setup directory structure and automate where the pictures taken go to.
-  10. Seperate folder for each bird type
+   1. Setup directory structure and automate where the pictures taken go to.
+   2. Seperate folder for each bird type
 
 ## Potential future work
 
