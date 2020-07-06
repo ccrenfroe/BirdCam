@@ -15,7 +15,7 @@ How to detect change betweena  brown bird and brown background?
 
 ## Dataset
 
-<s> <https://www.tensorflow.org/datasets/catalog/caltech_birds2011>  - First Candidate. <s>
+<s> <https://www.tensorflow.org/datasets/catalog/caltech_birds2011>  - First Candidate. </s>
 
 <https://tfhub.dev/google/lite-model/aiy/vision/classifier/birds_V1/1> - Birds V1.1 ;
 Tensorflow mobile bird classification model using the MobileNetV2 architecture  and the iNaturalist dataset.
