@@ -3,7 +3,7 @@ import numpy as np
 import tflite_runtime.interpreter as tflite
 # Get input and output tensors.
 input_details = interpreter.get_input_details()
-output_details = interpreter.get_output_d
+output_details = interpreter.get_output_details()
 # Load interpreter
 interpreter = tflite.Interpreter(model_path="aiy_vision_classifier_birds_V1_2.tflite")
 interpreter.allocate_tensors()
@@ -21,4 +21,3 @@ if __name__ == '__main__':
             'i',
             '--image',
             help='image to be classified')
-
