@@ -58,3 +58,7 @@ Tensorflow mobile bird classification model using the MobileNetV2 architecture  
 * Setup WebApp for the whole thing to run through.
 * Connect the images taken to a SQL database.
 * Send the images taken to AWS
+
+## Usefule sources
+
+https://www.tensorflow.org/lite/models/image_classification/overview
