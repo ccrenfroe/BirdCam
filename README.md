@@ -1,5 +1,7 @@
 # BirdCam
 
+## Purpose
+
 Bird detector and classifier implemented using a Raspberry Pi and Tensorflow Lite.
 
 The goal of this project is to implement a Smart BirdCam. The BirdCam should be fully automated, left to watch a bird feeder and take a picture when a bird shows up. The iamge should then be sent to some server, or locally, to then be run through a classifier and then stored into a directory for that birds species. Hopefully, the user can notice trends in what birds are visiting them and get some cool pictures as well.
@@ -21,11 +23,29 @@ Also, I recommend the [SanDisk Extreme 32Gb](https://www.amazon.com/gp/product/B
 
 ## Dependencies
 
-## API's
+Most of these should be available through Anaconda, so I would start my installing that.
+
+[PIL](https://www.pythonware.com/products/pil/) - May change to pillow
+[numpy](https://numpy.org/)
+[imutils](https://pypi.org/project/imutils/)
+[cv2](https://docs.opencv.org/2.4/index.html)
+[tflite_runtime.interpreter](https://www.tensorflow.org/lite/guide/python#install_just_the_tensorflow_lite_interpreter)
+
+## Docs
+
+### For the Camera
 
 [Picamera](picamera.readthedocs.io)
 [Raspistill](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md)
 [Raspivid](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md)
+
+### For Motion Detection
+
+[OpenCV](https://docs.opencv.org/2.4/index.html)
+
+### For Object Classification
+
+[Tensorflow Lite](https://www.tensorflow.org/lite/api_docs)
 
 ## Tasks
 
@@ -54,6 +74,7 @@ Organize Data
 Other
 
 * Create testing script to run the pictures from the TestingImages directory through the image_preprocessing.py script. Use pytest or unittest.
+* bash script to download all of the dependencies
 
 ### Things to think about
 
@@ -74,4 +95,6 @@ How to detect change between a brown bird and brown background?
 
 ## Useful sources
 
-https://www.tensorflow.org/lite/models/image_classification/overview
+<https://www.tensorflow.org/lite/guide/get_started#2_convert_the_model_format>
+<https://www.tensorflow.org/lite/guide/python>
+<https://www.tensorflow.org/lite/models/image_classification/overview>
