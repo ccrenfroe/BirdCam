@@ -4,7 +4,7 @@
 
 Bird detector and classifier implemented using a Raspberry Pi and Tensorflow Lite.
 
-The goal of this project is to implement a Smart BirdCam. The BirdCam should be fully automated, left to watch a bird feeder and take a picture when a bird shows up. The iamge should then be sent to some server, or locally, to then be run through a classifier and then stored into a directory for that birds species. Hopefully, the user can notice trends in what birds are visiting them and get some cool pictures as well.
+The goal of this project is to implement a Smart BirdCam. The BirdCam should be fully automated, left to watch a bird feeder and take a picture when a bird shows up. The image should then be sent to some server, or locally, to then be run through a classifier and then stored into a directory for that birds species. Hopefully, the user can notice trends in what birds are visiting them and get some cool pictures as well.
 
 ## Dataset
 
