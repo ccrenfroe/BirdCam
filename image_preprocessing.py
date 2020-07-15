@@ -8,7 +8,7 @@ from numpy import asarray
 DIRECTORY_IN = 'Images/PicturesIn/' # Folder of images to be processed
 DIRECTORY_OUT = 'Images/Processed/' # Folder for images post processing
 
-def process_image(DIRECTORY_IN):
+def process_directory(DIRECTORY_IN):
     for filename in os.listdir(DIRECTORY_IN):
         # Used to find the min and max of the image file
         # min = sys.maxsize
