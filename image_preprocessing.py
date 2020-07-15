@@ -40,8 +40,34 @@ def process_image(DIRECTORY_IN):
         img.save(DIRECTORY_OUT + filename)
     return
 
+def process_image(image_path):
+    image = Image.open(image_path)
+    new_image = image.resize((224,224))
+    np_image = asarray(new_image)
+    # min = sys.maxsize
+    # max = -sys.maxsize
+
+    image = Image.open(image_path)
+    new_image = image.resize((224,224))    
+    np_image = asarray(new_image)
+
+    # if min > np_image.min():
+    min = np_image.min()
+    # if max < np_image.max():
+    max = np_image.max()    
+
+    # normalize to the range 0-1
+    np_image = np_image.astype('float32')
+    np_image -= min
+    np_image /= (max - min)
+
+    return [np_image]
+
+
 def main():
-    process_image(DIRECTORY_IN)
+    #process_image(DIRECTORY_IN)
+    image = "Images/PicturesIn/mourningdove.jpg"
+    new_image = process_image(image)
     return
 
 if __name__ == "__main__":
