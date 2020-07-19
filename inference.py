@@ -25,7 +25,6 @@ def process_image(image_path):
 
     return [np_image]
 
-
 # Load interpreter
 interpreter = tf.lite.Interpreter(model_path="aiy_vision_classifier_birds_V1_2.tflite")
 # Get input and output tensors.

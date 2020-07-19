@@ -18,7 +18,6 @@ def process_directory(DIRECTORY_IN):
         image = Image.open(filepath)
         new_image = image.resize((224,224))    
         np_image = asarray(new_image)
-
         # Performing minmax normalization
         # if min > np_image.min():
         min = np_image.min() # Get min
@@ -65,9 +64,9 @@ def process_image(image_path):
 
 
 def main():
-    #process_image(DIRECTORY_IN)
-    image = "Images/PicturesIn/mourningdove.jpg"
-    new_image = process_image(image)
+    process_directory(DIRECTORY_IN)
+    #image = "Images/PicturesIn/mourningdove.jpg"
+    #new_image = process_image(image)
     return
 
 if __name__ == "__main__":
