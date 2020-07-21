@@ -10,7 +10,7 @@ The goal of this project is to implement a Smart BirdCam. The BirdCam should be 
 
 <s> <https://www.tensorflow.org/datasets/catalog/caltech_birds2011>  - First Candidate. </s>
 
-<https://tfhub.dev/google/lite-model/aiy/vision/classifier/birds_V1/2> - Birds V1.1 ;
+<https://tfhub.dev/google/lite-model/aiy/vision/classifier/birds_V1/2> - Birds V1.2 ;
 Tensorflow mobile bird classification model using the MobileNetV2 architecture  and the iNaturalist dataset.
 
 ## Hardware
