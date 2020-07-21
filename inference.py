@@ -1,8 +1,7 @@
 import argparse
 import numpy as np
 from numpy import asarray
-
-# import tflite_runtime.interpreter as tflite //Why was this here?
+import csv
 import tensorflow as tf
 
 #For image preprocessing
@@ -16,6 +15,21 @@ def process_image(image_path):
     np_image = asarray(new_image)
     np_image = np_image.astype('uint8')
     return [np_image]
+
+def find_label(model_output):
+    max_label = 0
+    index  = -1
+    for label in model_output:
+        index += 1
+        if max_label < label:
+            answer = index
+    return answer
+
+def get_bird_name(index):
+    with open('aiy_birds_V1_labelmap.csv') as csvIn:
+        labels = list(csv.reader(csvIn))
+        label = labels[index+2][1]
+    return label
 
 # Load interpreter
 interpreter = tf.lite.Interpreter(model_path="aiy_vision_classifier_birds_V1_2.tflite")
@@ -32,11 +46,16 @@ interpreter.set_tensor(input_details[0]['index'], image)
 # run the inference
 interpreter.invoke()
 
-output_data = interpreter.get_tensor(output_details[0]['index'])
+output_data = interpreter.get_tensor(output_details[0]['index'])[0]
 
 # Output
-print("the output is {}".format(output_data))
-
+print(output_details)
+# Finds the label for the output
+print(output_data)
+index = find_label(output_data)
+print(index)
+label = get_bird_name(index)
+print(label)
 
 # if __name__ == '__main__':
 #     parser = argparse.ArgumentParser()

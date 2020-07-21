@@ -68,6 +68,7 @@ Machine Learning
   
 Organize Data
 
+* Script to take picture and save it to `PicturesIn`
 * Setup directory structure and automate where the pictures taken go to.
 * Seperate folder for each bird type
 
@@ -83,7 +84,7 @@ What should be done to prevent false positives when the sway of the bird feeder 
 
 Squirrels like to mess with the bird feeder alot also. Should Tensorflow train on squirrels as well?
 
-Changes in time of day could also casue false positives.
+Changes in time of day could also cause false positives. Find a way to fix this or perhaps just restart the script every hour or so?
 
 How to detect change between a brown bird and brown background?
 
