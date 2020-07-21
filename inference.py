@@ -3,7 +3,6 @@ import numpy as np
 from numpy import asarray
 import csv
 import tensorflow as tf
-
 #For image preprocessing
 import os
 import sys
@@ -49,11 +48,7 @@ interpreter.invoke()
 output_data = interpreter.get_tensor(output_details[0]['index'])[0]
 
 # Output
-print(output_details)
-# Finds the label for the output
-print(output_data)
 index = find_label(output_data)
-print(index)
 label = get_bird_name(index)
 print(label)
 

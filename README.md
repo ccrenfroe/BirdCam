@@ -49,6 +49,11 @@ Most of these should be available through Anaconda, so I would start my installi
 
 ## Tasks
 
+Code Maintenance
+
+* Try and object orient some of the code or make the different scripts into modules.
+* Create a main script.
+
 Streaming
 
 * Connect Pi and computer using ssh.
