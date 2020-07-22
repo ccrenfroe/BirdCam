@@ -81,6 +81,7 @@ Other
 
 * Create testing script to run the pictures from the TestingImages directory through the image_preprocessing.py script. Use pytest or unittest.
 * bash script to download all of the dependencies
+* Add common names of birds to the labelmap.
 
 ### Things to think about
 

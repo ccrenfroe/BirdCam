@@ -3,7 +3,6 @@ import numpy as np
 from numpy import asarray
 import csv
 import tensorflow as tf
-import os
 import sys
 from PIL import Image
 
@@ -35,7 +34,7 @@ def get_bird_name(index):
 
 def classify_bird(image_in):
     """
-    Returns the bird detected in the image
+    Returns the bird detected in the image.
     """
     # Load interpreter
     interpreter = tf.lite.Interpreter(model_path="aiy_vision_classifier_birds_V1_2.tflite")
@@ -61,7 +60,7 @@ def classify_bird(image_in):
     return label
 
 def main():
-    image = "Images/PicturesIn/painted-bunting_adult-male.jpg"
+    image = ""
     classify_bird(image)
 
 if __name__ == "__main__":
