@@ -68,14 +68,11 @@ Motion Detection
 
 Machine Learning
 
-* Test Tensorflow with pictures of birds. If it can be tested with pictures of birds from the camera, even better.
-* Optionally add squirrels?
+None right now!
   
 Organize Data
 
 * Script to take picture and save it to `PicturesIn`
-* Setup directory structure and automate where the pictures taken go to.
-* Seperate folder for each bird type
 
 Other
 
@@ -93,6 +90,8 @@ Squirrels like to mess with the bird feeder alot also. Should Tensorflow train o
 Changes in time of day could also cause false positives. Find a way to fix this or perhaps just restart the script every hour or so?
 
 How to detect change between a brown bird and brown background?
+
+Optionally add squirrels?
 
 ## Potential future work
 
