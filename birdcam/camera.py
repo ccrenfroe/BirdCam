@@ -10,5 +10,6 @@ PICTURES_IN = 'Images/PicturesIn/'
 timestr = time.strftime("%Y%m%d-%H%M%S")
 
 camera = PiCamera()
+
 camera.capture(PICTURES_IN + timestr + ".jpg")
 
