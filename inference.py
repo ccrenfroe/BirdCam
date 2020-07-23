@@ -27,7 +27,7 @@ def find_label(model_output):
 
 def get_bird_name(index):
     """Return birds name according to labelmap"""
-    with open('aiy_birds_V1_labelmap.csv') as csvIn:
+    with open('aiy/aiy_birds_V1_labelmap.csv') as csvIn:
         labels = list(csv.reader(csvIn)) # Converts the labelmap.csv to a list for easy indexing.
         label = labels[index+2][1] # Plus 2 to ignore the first 2 lines of the CSV, and 1 to go to the 'name' column
     return label
@@ -37,7 +37,7 @@ def classify_bird(image_in):
     Returns the bird detected in the image.
     """
     # Load interpreter
-    interpreter = tf.lite.Interpreter(model_path="aiy_vision_classifier_birds_V1_2.tflite")
+    interpreter = tf.lite.Interpreter(model_path="aiy/aiy_vision_classifier_birds_V1_2.tflite")
     # Get input and output tensors.
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
@@ -60,7 +60,7 @@ def classify_bird(image_in):
     return label
 
 def main():
-    image = ""
+    image = "Images/PicturesIn/blue_Jay.jpg"
     classify_bird(image)
 
 if __name__ == "__main__":
