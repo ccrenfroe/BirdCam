@@ -22,6 +22,7 @@ def find_label(model_output):
     for label in model_output: 
         index += 1
         if max_label < label:
+            max_label = label
             answer = index
     return answer
 
