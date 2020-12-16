@@ -1,8 +1,11 @@
-import BirdCam.inference as inferencer
+import birdcam.inference as inferencer
+import birdcam.camera as camera
 
 def main():
     image = "Images/PicturesIn/blue_Jay.jpg"
     inferencer.classify_bird(image)
+
+    camera.capture()
 
 if __name__ == "__main__":
     main()

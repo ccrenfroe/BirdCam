@@ -11,5 +11,6 @@ timestr = time.strftime("%Y%m%d-%H%M%S")
 
 camera = PiCamera()
 
-camera.capture(PICTURES_IN + timestr + ".jpg")
+def capture():
+    return camera.capture(PICTURES_IN + timestr + ".jpg")
 

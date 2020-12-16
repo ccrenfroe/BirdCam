@@ -5,8 +5,10 @@ import sys
 PICTURES_IN = 'Images/PicturesIn/'
 BIRDS_ROOT = 'Images/Birds/'
 
+# May not be needed
 def new_image(image):
     """Places the new image in the 'PicturesIn' directory"""
+    os.replace(image,PICTURES_IN + image)
     return
 
 def move_image(image, destination):
@@ -42,8 +44,9 @@ def move_image(image, destination):
         return
 
 def main():
-    image = "Images/PicturesIn/morningdove.jpg"
+    image = "Images/PicturesIn/mourningdove.jpg"
     move_image(image,"testing")
+    # new_image("img__12345.jpg")
 
 if __name__ == "__main__":
     main()
